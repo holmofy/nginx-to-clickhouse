@@ -13,7 +13,8 @@ services:
     command: --config=/etc/fluent-bit/fluent-bit.conf
     volumes:
       - ./nginx/log:/var/log/nginx
-      - ./fluentbit:/etc/fluent-bit
+      - ./fluentbit/conf:/etc/fluent-bit
+      - ./fluentbit/data:/var/lib/fluentbit
     depends_on:
       - nginx
       - clickhouse-server

@@ -1,6 +1,6 @@
-create database nginx;
+CREATE DATABASE IF NOT EXISTS nginx;
 
-create table if not exists nginx.access_logs(
+CREATE TABLE IF NOT EXISTS nginx.access_logs(
     remote_addr String,
     host String,
     remote_user String,
@@ -15,7 +15,7 @@ create table if not exists nginx.access_logs(
 ORDER BY access_time
 PARTITION BY toYYYYMM(access_time);
 
-CREATE TABLE nginx.access_logs_buffer AS nginx.access_logs ENGINE = Buffer(
+CREATE TABLE IF NOT EXISTS nginx.access_logs_buffer AS nginx.access_logs ENGINE = Buffer(
     nginx, access_logs, 16, 
     10, 100, 
     10000, 1000000, 
