@@ -1,0 +1,4 @@
+clickhouse/data/
+clickhouse/log/
+nginx/log/
+.DS_Store
